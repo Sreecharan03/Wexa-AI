@@ -1,0 +1,86 @@
+{
+  "traversal_1hop": {
+    "p50_ms": 220.324,
+    "p95_ms": 225.127,
+    "min_ms": 219.341,
+    "max_ms": 1334.74,
+    "mean_ms": 234.249,
+    "n_samples": 100,
+    "query": "traversal_1hop",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "traversal_2hop": {
+    "p50_ms": 228.319,
+    "p95_ms": 556.621,
+    "min_ms": 219.505,
+    "max_ms": 1439.707,
+    "mean_ms": 298.383,
+    "n_samples": 100,
+    "query": "traversal_2hop",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "traversal_3hop": {
+    "p50_ms": 1118.143,
+    "p95_ms": 3590.106,
+    "min_ms": 219.398,
+    "max_ms": 4090.559,
+    "mean_ms": 1375.734,
+    "n_samples": 100,
+    "query": "traversal_3hop",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "point_lookup": {
+    "p50_ms": 219.945,
+    "p95_ms": 223.331,
+    "min_ms": 219.514,
+    "max_ms": 1355.606,
+    "mean_ms": 242.595,
+    "n_samples": 100,
+    "query": "point_lookup",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "indexed_filtered_lookup": {
+    "p50_ms": 225.272,
+    "p95_ms": 229.682,
+    "min_ms": 224.063,
+    "max_ms": 1336.851,
+    "mean_ms": 248.17,
+    "n_samples": 100,
+    "query": "indexed_filtered_lookup",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "aggregation_relationship_count": {
+    "p50_ms": 219.832,
+    "p95_ms": 222.442,
+    "min_ms": 219.278,
+    "max_ms": 1340.121,
+    "mean_ms": 242.421,
+    "n_samples": 100,
+    "query": "aggregation_relationship_count",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "aggregation_degree_distribution": {
+    "p50_ms": 264.882,
+    "p95_ms": 294.185,
+    "min_ms": 260.791,
+    "max_ms": 1375.802,
+    "mean_ms": 301.039,
+    "n_samples": 100,
+    "query": "aggregation_degree_distribution",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  }
+}
