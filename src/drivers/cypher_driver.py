@@ -4,7 +4,31 @@ Cypher/Bolt driver — used for CognoDB Cloud and Neo4j AuraDB Free.
 
 import time
 from neo4j import GraphDatabase
+from neo4j.exceptions import ServiceUnavailable, SessionExpired
 from src.drivers.base import GraphDriver
+
+
+def _run_with_retry(session, query, params, max_retries=5):
+    """
+    Same resilience pattern as ArangoDriver's _insert_with_retry, applied
+    here for methodology consistency: if one platform gets crash protection
+    against transient connection issues under a capped-CPU instance, every
+    platform should, so a transient failure doesn't unfairly penalize one
+    platform with a hard crash while another survives it gracefully.
+    """
+    retries = 0
+    last_exception = None
+    for attempt in range(max_retries):
+        try:
+            session.run(query, **params)
+            return retries
+        except (ServiceUnavailable, SessionExpired, ConnectionError) as e:
+            last_exception = e
+            retries += 1
+            time.sleep(0.5 * (attempt + 1))
+    raise RuntimeError(
+        f"Query failed after {max_retries} retries. Last error: {last_exception}"
+    )
 
 
 class CypherDriver(GraphDriver):
@@ -15,6 +39,8 @@ class CypherDriver(GraphDriver):
         self.password = password
         self.platform_label = platform_label
         self.driver = None
+        self.last_node_load_retries = 0
+        self.last_edge_load_retries = 0
 
     def connect(self):
         self.driver = GraphDatabase.driver(self.uri, auth=(self.user, self.password))
@@ -36,33 +62,45 @@ class CypherDriver(GraphDriver):
 
     def load_nodes(self, nodes: list[dict], batch_size: int) -> float:
         start = time.perf_counter()
+        total_retries = 0
         with self.driver.session() as session:
             for i in range(0, len(nodes), batch_size):
                 batch = nodes[i:i + batch_size]
-                session.run(
+                total_retries += _run_with_retry(
+                    session,
                     """
                     UNWIND $batch AS row
                     CREATE (a:Author {id: row.id, bucket: row.bucket})
                     """,
-                    batch=batch,
+                    {"batch": batch},
                 )
-        return time.perf_counter() - start
+        elapsed = time.perf_counter() - start
+        self.last_node_load_retries = total_retries
+        if total_retries > 0:
+            print(f"  [{self.platform_label}] node load required {total_retries} batch retries")
+        return elapsed
 
     def load_edges(self, edges: list[dict], batch_size: int) -> float:
         start = time.perf_counter()
+        total_retries = 0
         with self.driver.session() as session:
             for i in range(0, len(edges), batch_size):
                 batch = edges[i:i + batch_size]
-                session.run(
+                total_retries += _run_with_retry(
+                    session,
                     """
                     UNWIND $batch AS row
                     MATCH (a:Author {id: row.source})
                     MATCH (b:Author {id: row.target})
                     CREATE (a)-[:COLLABORATES]->(b)
                     """,
-                    batch=batch,
+                    {"batch": batch},
                 )
-        return time.perf_counter() - start
+        elapsed = time.perf_counter() - start
+        self.last_edge_load_retries = total_retries
+        if total_retries > 0:
+            print(f"  [{self.platform_label}] edge load required {total_retries} batch retries")
+        return elapsed
 
     def create_primary_index(self) -> float:
         start = time.perf_counter()
