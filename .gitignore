@@ -10,3 +10,4 @@ data/raw/
 
 # OS cruft
 .DS_Store
+docker-data/
