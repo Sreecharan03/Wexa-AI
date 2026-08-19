@@ -148,10 +148,19 @@ class CypherDriver(GraphDriver):
             print(f"  [{self.platform_label}] secondary index confirmed via: {strategy}")
         return time.perf_counter() - start
 
-    def run_read_query(self, cypher: str, aql: str, params: dict) -> list:
-        with self.driver.session() as session:
-            result = session.run(cypher, **params)
-            return [record.data() for record in result]
+    def run_read_query(self, cypher: str, aql: str, params: dict, max_retries=5) -> list:
+        last_exception = None
+        for attempt in range(max_retries):
+            try:
+                with self.driver.session() as session:
+                    result = session.run(cypher, **params)
+                    return [record.data() for record in result]
+            except (ServiceUnavailable, SessionExpired, ConnectionError) as e:
+                last_exception = e
+                time.sleep(0.5 * (attempt + 1))
+        raise RuntimeError(
+            f"run_read_query failed after {max_retries} retries. Last error: {last_exception}"
+        )
 
     def get_footprint(self) -> dict:
         try:

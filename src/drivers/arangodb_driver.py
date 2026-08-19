@@ -106,9 +106,22 @@ class ArangoDriver(GraphDriver):
         self.db.collection("authors").add_index({"type": "persistent", "fields": ["bucket"]})
         return time.perf_counter() - start
 
-    def run_read_query(self, cypher: str, aql: str, params: dict) -> list:
-        cursor = self.db.aql.execute(aql, bind_vars=params)
-        return list(cursor)
+    def run_read_query(self, cypher: str, aql: str, params: dict, max_retries=5) -> list:
+        last_exception = None
+        for attempt in range(max_retries):
+            try:
+                cursor = self.db.aql.execute(aql, bind_vars=params)
+                return list(cursor)
+            except (ConnectionError, ConnectionAbortedError, ArangoServerError) as e:
+                last_exception = e
+                time.sleep(0.5 * (attempt + 1))
+                try:
+                    self.db = self.client.db(self.db_name, username=self.user, password=self.password)
+                except Exception:
+                    pass
+        raise RuntimeError(
+            f"run_read_query failed after {max_retries} retries. Last error: {last_exception}"
+        )
 
     def get_footprint(self) -> dict:
         try:
