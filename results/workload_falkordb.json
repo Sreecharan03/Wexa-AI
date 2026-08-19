@@ -1,0 +1,86 @@
+{
+  "traversal_1hop": {
+    "p50_ms": 0.749,
+    "p95_ms": 1.246,
+    "min_ms": 0.579,
+    "max_ms": 13.463,
+    "mean_ms": 0.924,
+    "n_samples": 100,
+    "query": "traversal_1hop",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "traversal_2hop": {
+    "p50_ms": 1.599,
+    "p95_ms": 13.348,
+    "min_ms": 0.695,
+    "max_ms": 30.973,
+    "mean_ms": 3.374,
+    "n_samples": 100,
+    "query": "traversal_2hop",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "traversal_3hop": {
+    "p50_ms": 19.277,
+    "p95_ms": 68.875,
+    "min_ms": 0.988,
+    "max_ms": 94.097,
+    "mean_ms": 25.556,
+    "n_samples": 100,
+    "query": "traversal_3hop",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "point_lookup": {
+    "p50_ms": 0.502,
+    "p95_ms": 0.62,
+    "min_ms": 0.415,
+    "max_ms": 0.719,
+    "mean_ms": 0.513,
+    "n_samples": 100,
+    "query": "point_lookup",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "indexed_filtered_lookup": {
+    "p50_ms": 1.549,
+    "p95_ms": 2.488,
+    "min_ms": 1.283,
+    "max_ms": 3.505,
+    "mean_ms": 1.637,
+    "n_samples": 100,
+    "query": "indexed_filtered_lookup",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "aggregation_relationship_count": {
+    "p50_ms": 0.57,
+    "p95_ms": 0.755,
+    "min_ms": 0.428,
+    "max_ms": 2.697,
+    "mean_ms": 0.604,
+    "n_samples": 100,
+    "query": "aggregation_relationship_count",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "aggregation_degree_distribution": {
+    "p50_ms": 1393.545,
+    "p95_ms": 1569.257,
+    "min_ms": 1193.779,
+    "max_ms": 1609.418,
+    "mean_ms": 1393.296,
+    "n_samples": 100,
+    "query": "aggregation_degree_distribution",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  }
+}

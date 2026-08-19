@@ -67,7 +67,7 @@ class FalkorDriver(GraphDriver):
         return time.perf_counter() - start
 
     def run_read_query(self, cypher: str, aql: str, params: dict) -> list:
-        result = self.graph.query(cypher, params)
+        result = self.graph.query(cypher, params, timeout=30000)
         columns = result.header
         column_names = [col[1] for col in columns] if columns else []
         return [dict(zip(column_names, row)) for row in result.result_set]

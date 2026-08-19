@@ -100,7 +100,8 @@ QUERIES = {
         ),
         "cypher": """
             MATCH (a:Author)
-            WITH a, COUNT { (a)-[:COLLABORATES]-() } AS degree
+            OPTIONAL MATCH (a)-[:COLLABORATES]-(neighbor)
+            WITH a, count(neighbor) AS degree
             WITH CASE
                 WHEN degree < 5 THEN 'low'
                 WHEN degree < 20 THEN 'medium'
