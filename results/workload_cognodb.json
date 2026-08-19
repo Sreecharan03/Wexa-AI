@@ -1,0 +1,86 @@
+{
+  "traversal_1hop": {
+    "p50_ms": 14.677,
+    "p95_ms": 18.427,
+    "min_ms": 13.764,
+    "max_ms": 27.897,
+    "mean_ms": 15.288,
+    "n_samples": 100,
+    "query": "traversal_1hop",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "traversal_2hop": {
+    "p50_ms": 19.935,
+    "p95_ms": 134.586,
+    "min_ms": 13.753,
+    "max_ms": 189.138,
+    "mean_ms": 38.227,
+    "n_samples": 100,
+    "query": "traversal_2hop",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "traversal_3hop": {
+    "p50_ms": 373.881,
+    "p95_ms": 3442.524,
+    "min_ms": 13.995,
+    "max_ms": 7676.297,
+    "mean_ms": 808.019,
+    "n_samples": 100,
+    "query": "traversal_3hop",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "point_lookup": {
+    "p50_ms": 14.264,
+    "p95_ms": 14.685,
+    "min_ms": 13.792,
+    "max_ms": 16.125,
+    "mean_ms": 14.335,
+    "n_samples": 100,
+    "query": "point_lookup",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "indexed_filtered_lookup": {
+    "p50_ms": 20.275,
+    "p95_ms": 23.344,
+    "min_ms": 18.324,
+    "max_ms": 24.77,
+    "mean_ms": 20.459,
+    "n_samples": 100,
+    "query": "indexed_filtered_lookup",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "aggregation_relationship_count": {
+    "p50_ms": 14.211,
+    "p95_ms": 15.384,
+    "min_ms": 13.778,
+    "max_ms": 16.989,
+    "mean_ms": 14.343,
+    "n_samples": 100,
+    "query": "aggregation_relationship_count",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  },
+  "aggregation_degree_distribution": {
+    "p50_ms": 4051.239,
+    "p95_ms": 4301.866,
+    "min_ms": 3841.745,
+    "max_ms": 4527.281,
+    "mean_ms": 4068.993,
+    "n_samples": 100,
+    "query": "aggregation_degree_distribution",
+    "warmup_calls": 10,
+    "timed_calls": 100,
+    "errors_during_timed_phase": 0
+  }
+}
