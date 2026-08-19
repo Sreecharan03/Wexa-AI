@@ -8,14 +8,44 @@ from neo4j.exceptions import ServiceUnavailable, SessionExpired
 from src.drivers.base import GraphDriver
 
 
+def _wait_for_index_online(session, index_name, timeout=300):
+    """
+    Polls for an index to come online. Tries two strategies:
+    1. Neo4j/AuraDB-style: SHOW INDEXES exposes a 'state' column.
+    2. CognoDB-style: no 'state' column (confirmed empirically — its
+       schema is name/type/label/properties/unique only). Falls back
+       to existence-check: if the index name appears in SHOW INDEXES,
+       treat it as ready.
+    Falls back to a fixed safety-margin sleep if neither works.
+    """
+    start = time.perf_counter()
+
+    while time.perf_counter() - start < timeout:
+        try:
+            result = session.run(
+                "SHOW INDEXES YIELD name, state WHERE name = $name", name=index_name
+            )
+            record = result.single()
+            if record and record["state"] == "ONLINE":
+                return "state-based"
+            time.sleep(0.3)
+            continue
+        except Exception:
+            break
+
+    try:
+        result = session.run("SHOW INDEXES")
+        names = [record["name"] for record in result]
+        if index_name in names:
+            return "existence-based"
+    except Exception:
+        pass
+
+    time.sleep(2)
+    return "fallback-sleep"
+
+
 def _run_with_retry(session, query, params, max_retries=5):
-    """
-    Same resilience pattern as ArangoDriver's _insert_with_retry, applied
-    here for methodology consistency: if one platform gets crash protection
-    against transient connection issues under a capped-CPU instance, every
-    platform should, so a transient failure doesn't unfairly penalize one
-    platform with a hard crash while another survives it gracefully.
-    """
     retries = 0
     last_exception = None
     for attempt in range(max_retries):
@@ -106,14 +136,16 @@ class CypherDriver(GraphDriver):
         start = time.perf_counter()
         with self.driver.session() as session:
             session.run("CREATE INDEX author_id_index IF NOT EXISTS FOR (a:Author) ON (a.id)")
-            session.run("CALL db.awaitIndexes(300)")
+            strategy = _wait_for_index_online(session, "author_id_index")
+            print(f"  [{self.platform_label}] primary index confirmed via: {strategy}")
         return time.perf_counter() - start
 
     def create_secondary_index(self) -> float:
         start = time.perf_counter()
         with self.driver.session() as session:
             session.run("CREATE INDEX author_bucket_index IF NOT EXISTS FOR (a:Author) ON (a.bucket)")
-            session.run("CALL db.awaitIndexes(300)")
+            strategy = _wait_for_index_online(session, "author_bucket_index")
+            print(f"  [{self.platform_label}] secondary index confirmed via: {strategy}")
         return time.perf_counter() - start
 
     def run_read_query(self, cypher: str, aql: str, params: dict) -> list:
