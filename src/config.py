@@ -46,7 +46,7 @@ PLATFORMS = {
         advertised_vcpu="0.5 (burstable)",
         advertised_ram="256 MB",
         advertised_disk="1 GB",
-        indexed_properties=["id"],
+        indexed_properties=["id", "bucket"],
         notes="Free tier (c0 instance). Bolt+s protocol, Neo4j driver compatible.",
     ),
 
@@ -58,7 +58,7 @@ PLATFORMS = {
         advertised_vcpu="not published (shared/burstable)",
         advertised_ram="~250 MB (vendor-stated ceiling)",
         advertised_disk="hard-capped at 200k nodes / 400k relationships (not a GB figure)",
-        indexed_properties=["id"],
+        indexed_properties=["id", "bucket"],
         notes=(
             "AuraDB Free enforces a node/relationship count cap rather than a disk size. "
             "Dataset was sized to fit under this cap (see README dataset section). "
@@ -77,7 +77,7 @@ PLATFORMS = {
         advertised_vcpu="0.5 (docker --cpus cap)",
         advertised_ram="256 MB (docker --memory cap)",
         advertised_disk="not hard-capped (Docker limitation, stated as caveat)",
-        indexed_properties=["id"],
+        indexed_properties=["id", "bucket"],
         notes=(
             "FalkorDB Cloud's actual free tier is only 100MB RAM (smaller than CognoDB's "
             "256MB) — self-hosting via Docker and capping to 256MB was used instead to "
@@ -94,7 +94,7 @@ PLATFORMS = {
         advertised_vcpu="0.5 (docker --cpus cap)",
         advertised_ram="256 MB (docker --memory cap)",
         advertised_disk="not hard-capped (Docker limitation, stated as caveat)",
-        indexed_properties=["id"],
+        indexed_properties=["id", "bucket"],
         notes=(
             "ArangoDB Oasis dropped its permanent free tier (now 14-day trial only), "
             "which would risk expiring mid-benchmark. Self-hosted Community Edition via "

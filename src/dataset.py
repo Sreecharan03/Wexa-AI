@@ -74,11 +74,11 @@ def parse_edge_list():
 def write_csvs(id_map: dict, edges: list):
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-    print(f"Writing {NODES_CSV_PATH} ({len(id_map):,} nodes)...")
+    print(f"Writing {NODES_CSV_PATH} ({len(id_map):,} nodes, with synthetic 'bucket' property)...")
     with open(NODES_CSV_PATH, "w") as f:
-        f.write("id\n")
+        f.write("id,bucket\n")
         for new_id in range(len(id_map)):
-            f.write(f"{new_id}\n")
+            f.write(f"{new_id},{new_id % 100}\n")
 
     print(f"Writing {EDGES_CSV_PATH} ({len(edges):,} edges)...")
     with open(EDGES_CSV_PATH, "w") as f:
