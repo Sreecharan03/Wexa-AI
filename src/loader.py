@@ -81,6 +81,8 @@ def run_load_for_platform(platform_key: str, nodes: list, edges: list) -> dict:
         "secondary_index_seconds": round(secondary_index_seconds, 3),
         "total_wall_clock_load_seconds": round(total_wall_clock_seconds, 3),
         "footprint": footprint,
+        "node_load_retries": getattr(driver, "last_node_load_retries", 0),
+        "edge_load_retries": getattr(driver, "last_edge_load_retries", 0),
     }
     return result
 

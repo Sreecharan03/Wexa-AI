@@ -1,0 +1,20 @@
+{
+  "platform": "arangodb",
+  "platform_display_name": "ArangoDB Community Edition (self-hosted)",
+  "node_count": 18772,
+  "relationship_count": 198050,
+  "batch_size": 1000,
+  "node_load_seconds": 1.252,
+  "nodes_per_second": 14990.3,
+  "primary_index_seconds": 0.0,
+  "edge_load_seconds": 11.714,
+  "relationships_per_second": 16906.7,
+  "secondary_index_seconds": 0.002,
+  "total_wall_clock_load_seconds": 12.967,
+  "footprint": {
+    "authors_collection_bytes": 1248223,
+    "collaborates_collection_bytes": 17714642
+  },
+  "node_load_retries": 0,
+  "edge_load_retries": 3
+}
