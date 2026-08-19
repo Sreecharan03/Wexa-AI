@@ -1,0 +1,19 @@
+{
+  "platform": "aura",
+  "platform_display_name": "Neo4j AuraDB Free",
+  "node_count": 18772,
+  "relationship_count": 198050,
+  "batch_size": 1000,
+  "node_load_seconds": 5.922,
+  "nodes_per_second": 3169.9,
+  "primary_index_seconds": 0.468,
+  "edge_load_seconds": 70.674,
+  "relationships_per_second": 2802.3,
+  "secondary_index_seconds": 0.463,
+  "total_wall_clock_load_seconds": 77.064,
+  "footprint": {
+    "note": "not observable \u2014 store-size procedure not available on this instance"
+  },
+  "node_load_retries": 0,
+  "edge_load_retries": 0
+}
