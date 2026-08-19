@@ -1,0 +1,11 @@
+{
+  "source": "SNAP ca-AstroPh (arXiv Astro Physics collaboration network)",
+  "source_url": "https://snap.stanford.edu/data/ca-AstroPh.txt.gz",
+  "node_count": 18772,
+  "relationship_count": 198050,
+  "raw_directed_pair_count_before_dedup": 396160,
+  "self_loops_dropped": 60,
+  "directed_in_source_file": true,
+  "treated_as": "undirected",
+  "notes": "Node/edge counts are measured directly from the downloaded file at prep time, not copied from documentation. Raw file contains 396,160 directed pairs (each real edge listed twice); these were deduplicated to unique undirected edges via a canonical (min_id, max_id) key, and 60 self-loops were dropped. This keeps a comfortable safety margin under AuraDB Free's 400k relationship cap and avoids double-counting edges in ingest throughput / traversal fan-out metrics."
+}
