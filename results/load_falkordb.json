@@ -1,0 +1,17 @@
+{
+  "platform": "falkordb",
+  "platform_display_name": "FalkorDB (self-hosted)",
+  "node_count": 18772,
+  "relationship_count": 198050,
+  "batch_size": 1000,
+  "node_load_seconds": 0.524,
+  "nodes_per_second": 35835.4,
+  "primary_index_seconds": 0.001,
+  "edge_load_seconds": 41.875,
+  "relationships_per_second": 4729.6,
+  "secondary_index_seconds": 0.001,
+  "total_wall_clock_load_seconds": 42.4,
+  "footprint": {
+    "redis_used_memory_bytes": 24093256
+  }
+}
