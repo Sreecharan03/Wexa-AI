@@ -1,0 +1,96 @@
+{
+  "platform": "falkordb",
+  "platform_display_name": "FalkorDB (self-hosted)",
+  "concurrency": 10,
+  "requested_duration_seconds": 10,
+  "actual_duration_seconds": 10.058,
+  "read_ratio": 0.8,
+  "reads_ok": 18164,
+  "reads_failed": 0,
+  "writes_ok": 4498,
+  "writes_failed": 0,
+  "total_successful_ops": 22662,
+  "ops_per_second": 2253.2,
+  "reads_per_second": 1805.98,
+  "writes_per_second": 447.22,
+  "post_run_integrity_check": {
+    "verified": true,
+    "expected_nodes": 18772,
+    "actual_nodes": 18772,
+    "expected_edges": 198050,
+    "actual_edges": 198050,
+    "dataset_intact": true
+  },
+  "per_worker_breakdown": [
+    {
+      "worker_id": 6,
+      "reads_ok": 1832,
+      "reads_failed": 0,
+      "writes_ok": 453,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 3,
+      "reads_ok": 1782,
+      "reads_failed": 0,
+      "writes_ok": 441,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 4,
+      "reads_ok": 1804,
+      "reads_failed": 0,
+      "writes_ok": 442,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 7,
+      "reads_ok": 1820,
+      "reads_failed": 0,
+      "writes_ok": 428,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 1,
+      "reads_ok": 1826,
+      "reads_failed": 0,
+      "writes_ok": 448,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 5,
+      "reads_ok": 1848,
+      "reads_failed": 0,
+      "writes_ok": 433,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 0,
+      "reads_ok": 1844,
+      "reads_failed": 0,
+      "writes_ok": 444,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 2,
+      "reads_ok": 1823,
+      "reads_failed": 0,
+      "writes_ok": 450,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 8,
+      "reads_ok": 1772,
+      "reads_failed": 0,
+      "writes_ok": 478,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 9,
+      "reads_ok": 1813,
+      "reads_failed": 0,
+      "writes_ok": 481,
+      "writes_failed": 0
+    }
+  ]
+}
