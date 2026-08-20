@@ -59,6 +59,8 @@ class ArangoDriver(GraphDriver):
             self.db.create_collection("authors")
         if not self.db.has_collection("collaborates"):
             self.db.create_collection("collaborates", edge=True)
+        if not self.db.has_collection("mixed_scratch"):
+            self.db.create_collection("mixed_scratch")
 
     def close(self):
         pass
@@ -133,3 +135,9 @@ class ArangoDriver(GraphDriver):
             }
         except Exception:
             return {"note": "not observable — collection statistics not available"}
+
+    def write_scratch_node(self, node_id: int):
+        self.db.collection("mixed_scratch").insert({"_key": f"scratch_{node_id}", "id": node_id})
+
+    def cleanup_scratch(self):
+        self.db.collection("mixed_scratch").truncate()

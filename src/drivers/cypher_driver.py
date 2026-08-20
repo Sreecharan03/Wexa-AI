@@ -172,3 +172,14 @@ class CypherDriver(GraphDriver):
         except Exception as e:
             pass
         return {"note": "not observable — store-size procedure not available on this instance"}
+
+    def write_scratch_node(self, node_id: int):
+        with self.driver.session() as session:
+            session.run(
+                "CREATE (s:MixedWorkloadScratch {id: $id})",
+                {"id": node_id},
+            )
+
+    def cleanup_scratch(self):
+        with self.driver.session() as session:
+            session.run("MATCH (s:MixedWorkloadScratch) DETACH DELETE s")

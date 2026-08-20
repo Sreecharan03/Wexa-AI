@@ -42,3 +42,9 @@ class GraphDriver(ABC):
     @abstractmethod
     def get_footprint(self) -> dict:
         raise NotImplementedError
+    @abstractmethod
+    def write_scratch_node(self, node_id: int):
+        raise NotImplementedError
+    @abstractmethod
+    def cleanup_scratch(self):
+        raise NotImplementedError

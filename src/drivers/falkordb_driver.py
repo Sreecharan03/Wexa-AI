@@ -78,3 +78,12 @@ class FalkorDriver(GraphDriver):
             return {"redis_used_memory_bytes": info.get("used_memory")}
         except Exception:
             return {"note": "not observable — memory INFO command not available"}
+
+    def write_scratch_node(self, node_id: int):
+        self.graph.query(
+            "CREATE (s:MixedWorkloadScratch {id: $id})",
+            {"id": node_id},
+        )
+
+    def cleanup_scratch(self):
+        self.graph.query("MATCH (s:MixedWorkloadScratch) DETACH DELETE s")
