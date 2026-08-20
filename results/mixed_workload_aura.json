@@ -1,0 +1,96 @@
+{
+  "platform": "aura",
+  "platform_display_name": "Neo4j AuraDB Free",
+  "concurrency": 10,
+  "requested_duration_seconds": 15,
+  "actual_duration_seconds": 15.171,
+  "read_ratio": 0.8,
+  "reads_ok": 459,
+  "reads_failed": 0,
+  "writes_ok": 116,
+  "writes_failed": 0,
+  "total_successful_ops": 575,
+  "ops_per_second": 37.9,
+  "reads_per_second": 30.25,
+  "writes_per_second": 7.65,
+  "post_run_integrity_check": {
+    "verified": true,
+    "expected_nodes": 18772,
+    "actual_nodes": 18772,
+    "expected_edges": 198050,
+    "actual_edges": 198050,
+    "dataset_intact": true
+  },
+  "per_worker_breakdown": [
+    {
+      "worker_id": 2,
+      "reads_ok": 49,
+      "reads_failed": 0,
+      "writes_ok": 8,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 3,
+      "reads_ok": 45,
+      "reads_failed": 0,
+      "writes_ok": 12,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 7,
+      "reads_ok": 50,
+      "reads_failed": 0,
+      "writes_ok": 7,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 0,
+      "reads_ok": 45,
+      "reads_failed": 0,
+      "writes_ok": 13,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 4,
+      "reads_ok": 46,
+      "reads_failed": 0,
+      "writes_ok": 11,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 8,
+      "reads_ok": 44,
+      "reads_failed": 0,
+      "writes_ok": 13,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 9,
+      "reads_ok": 49,
+      "reads_failed": 0,
+      "writes_ok": 9,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 1,
+      "reads_ok": 46,
+      "reads_failed": 0,
+      "writes_ok": 12,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 5,
+      "reads_ok": 41,
+      "reads_failed": 0,
+      "writes_ok": 17,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 6,
+      "reads_ok": 44,
+      "reads_failed": 0,
+      "writes_ok": 14,
+      "writes_failed": 0
+    }
+  ]
+}
