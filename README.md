@@ -1,3 +1,5 @@
+📝 I wrote up the full story of what broke — [read it on dev.to](https://dev.to/sree_charan/i-gave-five-graph-databases-256mb-of-ram-each-heres-what-broke-1jde)
+
 # CognoDB vs. the World: A Graph Database Benchmark
 
 This is a benchmark comparing [CognoDB Cloud](https://console.cognodb.com) against four other graph databases — Neo4j AuraDB Free, FalkorDB, and ArangoDB, all under matched resource limits, on the same dataset, with the same queries. It was built for a take-home assignment, but I tried to build it like something I'd actually trust if I found it on GitHub while evaluating databases for a real project.
