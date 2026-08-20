@@ -1,0 +1,96 @@
+{
+  "platform": "arangodb",
+  "platform_display_name": "ArangoDB Community Edition (self-hosted)",
+  "concurrency": 10,
+  "requested_duration_seconds": 15,
+  "actual_duration_seconds": 15.01,
+  "read_ratio": 0.8,
+  "reads_ok": 10220,
+  "reads_failed": 0,
+  "writes_ok": 2565,
+  "writes_failed": 0,
+  "total_successful_ops": 12785,
+  "ops_per_second": 851.78,
+  "reads_per_second": 680.89,
+  "writes_per_second": 170.89,
+  "post_run_integrity_check": {
+    "verified": true,
+    "expected_nodes": 18772,
+    "actual_nodes": 18772,
+    "expected_edges": 198050,
+    "actual_edges": 198050,
+    "dataset_intact": true
+  },
+  "per_worker_breakdown": [
+    {
+      "worker_id": 7,
+      "reads_ok": 969,
+      "reads_failed": 0,
+      "writes_ok": 279,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 2,
+      "reads_ok": 1038,
+      "reads_failed": 0,
+      "writes_ok": 260,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 3,
+      "reads_ok": 990,
+      "reads_failed": 0,
+      "writes_ok": 286,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 9,
+      "reads_ok": 1004,
+      "reads_failed": 0,
+      "writes_ok": 264,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 8,
+      "reads_ok": 1019,
+      "reads_failed": 0,
+      "writes_ok": 260,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 6,
+      "reads_ok": 1055,
+      "reads_failed": 0,
+      "writes_ok": 233,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 0,
+      "reads_ok": 1051,
+      "reads_failed": 0,
+      "writes_ok": 213,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 5,
+      "reads_ok": 1037,
+      "reads_failed": 0,
+      "writes_ok": 250,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 1,
+      "reads_ok": 1028,
+      "reads_failed": 0,
+      "writes_ok": 282,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 4,
+      "reads_ok": 1029,
+      "reads_failed": 0,
+      "writes_ok": 238,
+      "writes_failed": 0
+    }
+  ]
+}

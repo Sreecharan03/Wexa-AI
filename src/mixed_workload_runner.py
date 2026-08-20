@@ -118,8 +118,13 @@ def run_mixed_workload(platform_key: str, duration: int, concurrency: int, read_
             "RETURN LENGTH(collaborates)",
             {},
         )
-        actual_nodes = list(node_result[0].values())[0] if node_result else None
-        actual_edges = list(edge_result[0].values())[0] if edge_result else None
+        def extract_scalar(row):
+            if isinstance(row, dict):
+                return list(row.values())[0]
+            return row
+
+        actual_nodes = extract_scalar(node_result[0]) if node_result else None
+        actual_edges = extract_scalar(edge_result[0]) if edge_result else None
         integrity_check = {
             "verified": True,
             "expected_nodes": expected["node_count"],
