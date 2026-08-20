@@ -1,0 +1,96 @@
+{
+  "platform": "cognodb",
+  "platform_display_name": "CognoDB Cloud",
+  "concurrency": 10,
+  "requested_duration_seconds": 15,
+  "actual_duration_seconds": 15.011,
+  "read_ratio": 0.8,
+  "reads_ok": 5033,
+  "reads_failed": 0,
+  "writes_ok": 1252,
+  "writes_failed": 0,
+  "total_successful_ops": 6285,
+  "ops_per_second": 418.7,
+  "reads_per_second": 335.29,
+  "writes_per_second": 83.41,
+  "post_run_integrity_check": {
+    "verified": true,
+    "expected_nodes": 18772,
+    "actual_nodes": 18772,
+    "expected_edges": 198050,
+    "actual_edges": 198050,
+    "dataset_intact": true
+  },
+  "per_worker_breakdown": [
+    {
+      "worker_id": 7,
+      "reads_ok": 505,
+      "reads_failed": 0,
+      "writes_ok": 118,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 4,
+      "reads_ok": 534,
+      "reads_failed": 0,
+      "writes_ok": 113,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 2,
+      "reads_ok": 501,
+      "reads_failed": 0,
+      "writes_ok": 135,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 6,
+      "reads_ok": 484,
+      "reads_failed": 0,
+      "writes_ok": 117,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 3,
+      "reads_ok": 501,
+      "reads_failed": 0,
+      "writes_ok": 132,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 0,
+      "reads_ok": 517,
+      "reads_failed": 0,
+      "writes_ok": 130,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 5,
+      "reads_ok": 522,
+      "reads_failed": 0,
+      "writes_ok": 132,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 8,
+      "reads_ok": 500,
+      "reads_failed": 0,
+      "writes_ok": 140,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 1,
+      "reads_ok": 489,
+      "reads_failed": 0,
+      "writes_ok": 120,
+      "writes_failed": 0
+    },
+    {
+      "worker_id": 9,
+      "reads_ok": 480,
+      "reads_failed": 0,
+      "writes_ok": 115,
+      "writes_failed": 0
+    }
+  ]
+}
